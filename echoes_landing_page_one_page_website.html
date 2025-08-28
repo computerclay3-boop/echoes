@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Echoes — Voices that live forever</title>
+  <meta name="description" content="Echoes is a secure video legacy app. Record messages today and schedule them to be delivered to loved ones on future birthdays and milestones—even after you're gone." />
+  <meta property="og:title" content="Echoes — Voices that live forever" />
+  <meta property="og:description" content="Record video messages and schedule future delivery to your family for birthdays, graduations, and milestones." />
+  <meta property="og:type" content="website" />
+  <style>
+    :root{
+      --bg:#0e1116;          /* deep charcoal */
+      --card:#131821;        /* slightly lighter */
+      --muted:#9fb0c0;       /* slate */
+      --text:#eaf2fb;        /* near white */
+      --brand:#2aa198;       /* teal */
+      --accent:#d4af37;      /* soft gold */
+      --ring: rgba(42,161,152,.25);
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 16px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;background:linear-gradient(180deg,var(--bg),#0b0e13 60%);color:var(--text);font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif}
+    a{color:var(--brand);text-decoration:none}
+    a:hover{opacity:.9}
+    .container{max-width:1100px;margin-inline:auto;padding:24px}
+    header{position:sticky;top:0;backdrop-filter:saturate(120%) blur(8px);background:rgba(11,14,19,.6);border-bottom:1px solid rgba(255,255,255,.06);z-index:10}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .logo{display:flex;align-items:center;gap:12px;font-weight:700;letter-spacing:.2px}
+    .mark{width:34px;height:34px;border-radius:50%;background:radial-gradient(circle at 35% 35%, var(--accent), transparent 45%),
+          conic-gradient(from 210deg at 52% 50%, var(--brand), #11615c 40%, #0b3a37 72%, #0b3a37 100%);
+          box-shadow:0 2px 10px rgba(212,175,55,.3)}
+    .nav a.btn{padding:10px 16px;border:1px solid rgba(255,255,255,.12);border-radius:999px}
+    .cta{background:linear-gradient(135deg,var(--brand),#3ec7bc);color:#07231f;border:0}
+    .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:34px;align-items:center;padding:64px 24px}
+    .hero h1{font-size: clamp(2rem, 3.4vw, 3.25rem);line-height:1.1;margin:.2rem 0}
+    .lead{color:var(--muted);font-size: clamp(1rem,1.6vw,1.2rem)}
+    .card{background:var(--card);border:1px solid rgba(255,255,255,.07);border-radius:var(--radius);box-shadow:var(--shadow)}
+    .pill{display:inline-flex;gap:10px;align-items:center;padding:6px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.12);color:var(--muted)}
+    .grid{display:grid;gap:18px}
+    .grid.cols-3{grid-template-columns:repeat(3,1fr)}
+    .grid.cols-2{grid-template-columns:repeat(2,1fr)}
+    @media (max-width: 900px){.hero{grid-template-columns:1fr}.grid.cols-3{grid-template-columns:1fr}.grid.cols-2{grid-template-columns:1fr}}
+    .ghostBtn{background:transparent;border:1px solid rgba(255,255,255,.18);color:var(--text);padding:12px 18px;border-radius:12px}
+    .primaryBtn{background:linear-gradient(135deg,var(--accent),#f5df85);color:#1a1a1a;font-weight:700;border:0;padding:12px 18px;border-radius:12px;box-shadow:0 6px 18px rgba(212,175,55,.25)}
+    .input{width:100%;padding:14px 16px;border-radius:12px;border:1px solid rgba(255,255,255,.14);background:#0f141c;color:var(--text)}
+    .input:focus{outline:2px solid var(--ring)}
+    .badge{background:rgba(42,161,152,.14);color:#a7f1ea;padding:6px 10px;border-radius:999px;border:1px solid rgba(42,161,152,.3);font-size:.85rem}
+    .step{display:flex;gap:14px}
+    .step .n{min-width:32px;height:32px;display:grid;place-items:center;border-radius:10px;background:rgba(212,175,55,.12);border:1px solid rgba(212,175,55,.35);color:#f8e7a6;font-weight:700}
+    .featureIcon{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1)}
+    .price{padding:22px}
+    .price h3{margin:0 0 6px}
+    .muted{color:var(--muted)}
+    .tiny{font-size:.9rem}
+    .footer{border-top:1px solid rgba(255,255,255,.08);margin-top:48px;padding:28px 0;color:var(--muted)}
+    details{border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:14px 16px;background:rgba(255,255,255,.03)}
+    details+details{margin-top:10px}
+    summary{cursor:pointer;font-weight:600}
+    .screenshot{aspect-ratio: 16/10; border-radius:14px; border:1px solid rgba(255,255,255,.08); background:
+      radial-gradient(circle at 20% 20%, rgba(212,175,55,.2), transparent 35%),
+      linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)),
+      linear-gradient(135deg, #142131, #0f1724);
+      display:grid;place-items:center;color:#bcd0e5}
+    .screenshot small{opacity:.8}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="logo" aria-label="Echoes Home">
+        <div class="mark" aria-hidden="true"></div>
+        <span>Echoes</span>
+      </div>
+      <nav style="display:flex;gap:10px;align-items:center">
+        <a href="#features" class="btn">Features</a>
+        <a href="#pricing" class="btn">Pricing</a>
+        <a href="#faq" class="btn">FAQ</a>
+        <a href="#waitlist" class="btn cta">Join Waitlist</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="container hero">
+      <div>
+        <span class="pill"> <span class="badge">Private • Encrypted</span> <span>Video legacy app</span></span>
+        <h1>Voices that live forever.</h1>
+        <p class="lead">Record video messages today and schedule them to arrive on birthdays, graduations, and milestones—even after you're gone. Echoes keeps your love in motion.</p>
+        <div style="display:flex;gap:12px;margin-top:18px">
+          <a class="primaryBtn" href="#waitlist">Get Early Access</a>
+          <a class="ghostBtn" href="#how">See how it works</a>
+        </div>
+        <div style="display:flex;gap:18px;margin-top:18px;color:var(--muted)" class="tiny">
+          <span>Zero-knowledge encryption</span>
+          <span>•</span>
+          <span>Recipient controls & snooze</span>
+          <span>•</span>
+          <span>Long‑term delivery guarantee</span>
+        </div>
+      </div>
+      <div class="grid" style="gap:16px">
+        <div class="screenshot">
+          <div>
+            <strong>Home</strong><br/>
+            <small>Record • Schedule • Vault</small>
+          </div>
+        </div>
+        <div class="grid cols-2">
+          <div class="screenshot"><div><strong>Scheduler</strong><br/><small>Pick a date or milestone</small></div></div>
+          <div class="screenshot"><div><strong>Vault</strong><br/><small>Videos saved with dates</small></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRUST BAR -->
+    <section class="container card" style="padding:18px;display:flex;gap:22px;align-items:center;justify-content:space-around;flex-wrap:wrap">
+      <div class="tiny" aria-label="Security">🔒 AES‑256 at rest & TLS 1.3 in transit</div>
+      <div class="tiny" aria-label="Compliance">🧭 GDPR/CCPA aligned privacy</div>
+      <div class="tiny" aria-label="Uptime">☁️ Cloud redundancies & escrow</div>
+      <div class="tiny" aria-label="Delivery">📬 Verified‑executor release</div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section id="how" class="container" style="margin-top:42px">
+      <h2>How it works</h2>
+      <div class="grid cols-3" style="margin-top:16px">
+        <div class="card" style="padding:18px">
+          <div class="step"><div class="n">1</div><div><strong>Record</strong><br/><span class="muted">Capture a message in the app or upload a video.</span></div></div>
+        </div>
+        <div class="card" style="padding:18px">
+          <div class="step"><div class="n">2</div><div><strong>Schedule</strong><br/><span class="muted">Choose birthdays, anniversaries, or custom dates.</span></div></div>
+        </div>
+        <div class="card" style="padding:18px">
+          <div class="step"><div class="n">3</div><div><strong>Assign recipients</strong><br/><span class="muted">Pick who receives what—and let them opt to snooze.</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section id="features" class="container" style="margin-top:42px">
+      <h2>Built for love. Designed for trust.</h2>
+      <div class="grid cols-3" style="margin-top:16px">
+        <article class="card" style="padding:18px">
+          <div class="featureIcon">🔐</div>
+          <h3>Zero‑knowledge encryption</h3>
+          <p class="muted">Only you can decrypt your vault. We can't see your videos.</p>
+        </article>
+        <article class="card" style="padding:18px">
+          <div class="featureIcon">📜</div>
+          <h3>Executor verification</h3>
+          <p class="muted">Delivery triggers via verified executor and documents, with optional inactivity timers.</p>
+        </article>
+        <article class="card" style="padding:18px">
+          <div class="featureIcon">🗂️</div>
+          <h3>Legacy timeline</h3>
+          <p class="muted">Automate yearly birthday videos and milestone messages in a single timeline.</p>
+        </article>
+        <article class="card" style="padding:18px">
+          <div class="featureIcon">🧰</div>
+          <h3>Family vaults</h3>
+          <p class="muted">Shared spaces where multiple relatives can contribute and curate memories.</p>
+        </article>
+        <article class="card" style="padding:18px">
+          <div class="featureIcon">🧠</div>
+          <h3>AI memory montage</h3>
+          <p class="muted">Optional highlight reels stitched from your messages—always private to your vault.</p>
+        </article>
+        <article class="card" style="padding:18px">
+          <div class="featureIcon">📧</div>
+          <h3>Gentle delivery</h3>
+          <p class="muted">Thoughtful email templates with one‑tap snooze if the moment is too soon.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section id="pricing" class="container" style="margin-top:42px">
+      <h2>Simple pricing</h2>
+      <div class="grid cols-3" style="margin-top:16px">
+        <div class="card price">
+          <h3>Free</h3>
+          <p class="muted">Try Echoes</p>
+          <ul class="muted">
+            <li>• 5 videos (up to 5 minutes each)</li>
+            <li>• 1 recipient</li>
+            <li>• Basic scheduling</li>
+          </ul>
+          <div style="margin-top:12px"><button class="ghostBtn" aria-label="Choose Free">Start Free</button></div>
+        </div>
+        <div class="card price" style="border:1px solid rgba(212,175,55,.45)">
+          <h3>Premium <span class="badge">Most Popular</span></h3>
+          <p class="muted">$5/month</p>
+          <ul class="muted">
+            <li>• Unlimited videos</li>
+            <li>• Multiple recipients</li>
+            <li>• Family vaults</li>
+            <li>• Priority support</li>
+          </ul>
+          <div style="margin-top:12px"><button class="primaryBtn" aria-label="Choose Premium">Get Premium</button></div>
+        </div>
+        <div class="card price">
+          <h3>Lifetime</h3>
+          <p class="muted">$299 one‑time</p>
+          <ul class="muted">
+            <li>• Long‑term delivery guarantee*</li>
+            <li>• Escrow storage option</li>
+            <li>• Legal toolkit bundle</li>
+          </ul>
+          <div style="margin-top:12px"><button class="ghostBtn" aria-label="Choose Lifetime">Reserve Spot</button></div>
+        </div>
+      </div>
+      <p class="tiny muted" style="margin-top:8px">*Guarantee fulfilled via third‑party storage & release agreements; details at checkout.</p>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="container" style="margin-top:42px">
+      <h2>What people are saying</h2>
+      <div class="grid cols-3" style="margin-top:16px">
+        <blockquote class="card" style="padding:18px">“Getting Dad’s birthday video this year was everything. I laughed and cried. Thank you for making this possible.”<br/><span class="tiny muted">— Maya R.</span></blockquote>
+        <blockquote class="card" style="padding:18px">“As a new mom, I’m recording messages for every birthday. Peace of mind I didn't know I needed.”<br/><span class="tiny muted">— Alisha D.</span></blockquote>
+        <blockquote class="card" style="padding:18px">“We bundle Echoes into our estate plans. It humanizes the will.”<br/><span class="tiny muted">— J. Gomez, Estate Attorney</span></blockquote>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="container" style="margin-top:42px">
+      <h2>FAQs</h2>
+      <details>
+        <summary>How do you verify a passing?</summary>
+        <p class="muted">Delivery is triggered by a verified executor submitting required documents. You can also enable an inactivity timer as a secondary trigger.</p>
+      </details>
+      <details>
+        <summary>What if a recipient isn’t ready?</summary>
+        <p class="muted">Every delivery includes a gentle preview and a one‑tap “Snooze for later” option.</p>
+      </details>
+      <details>
+        <summary>Is my data private?</summary>
+        <p class="muted">Yes. Your vault uses end‑to‑end, zero‑knowledge encryption. Only you hold the decryption key.</p>
+      </details>
+      <details>
+        <summary>What happens if Echoes goes away?</summary>
+        <p class="muted">Lifetime plans include off‑platform escrow storage and legal release instructions to ensure delivery via partners.</p>
+      </details>
+    </section>
+
+    <!-- WAITLIST / CONTACT -->
+    <section id="waitlist" class="container card" style="margin-top:42px;padding:22px">
+      <div class="grid cols-2">
+        <div>
+          <h2>Join the early access list</h2>
+          <p class="muted">Be first to know when Echoes launches. We’ll send a single invite when your region is ready.</p>
+          <form onsubmit="event.preventDefault(); document.getElementById('thanks').hidden=false; this.reset();" aria-label="Join waitlist">
+            <div style="display:grid;gap:10px;max-width:520px">
+              <input class="input" type="text" name="name" placeholder="Your name" required aria-label="Your name" />
+              <input class="input" type="email" name="email" placeholder="Email" required aria-label="Email" />
+              <button class="primaryBtn" type="submit">Join Waitlist</button>
+              <span id="thanks" class="tiny" hidden>Thank you! We'll be in touch soon.</span>
+            </div>
+          </form>
+        </div>
+        <div class="screenshot" aria-hidden="true"><div><strong>Private • Encrypted • Gentle</strong><br/><small>Built for families</small></div></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="container footer">
+    <div style="display:flex;gap:14px;justify-content:space-between;align-items:center;flex-wrap:wrap">
+      <div style="display:flex;gap:10px;align-items:center">
+        <div class="mark" aria-hidden="true" style="width:22px;height:22px"></div>
+        <span class="tiny">© <span id="year"></span> Echoes</span>
+      </div>
+      <nav class="tiny">
+        <a href="#" aria-label="Privacy policy">Privacy</a> ·
+        <a href="#" aria-label="Terms of service">Terms</a> ·
+        <a href="mailto:hello@example.com" aria-label="Email support">Contact</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    // Set current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Smooth anchor scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const id=a.getAttribute('href').slice(1);
+        const el=document.getElementById(id);
+        if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth', block:'start'}); }
+      });
+    });
+  </script>
+</body>
+</html>
